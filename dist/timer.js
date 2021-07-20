@@ -7,8 +7,11 @@ let time = 0;
 let mytime = setInterval(function(){
         time++;
 
-        if(time==10)
+        if(time==10){
+            calculate();
+            location.href="end.html";
             clearInterval(mytime);
+        }
         
         if(seconds < 59) {
             seconds++;
@@ -20,3 +23,11 @@ let mytime = setInterval(function(){
         let formatted_min = minutes < 10 ? `0${minutes}`: `${minutes}`;
         document.getElementById("timer").innerHTML = `${formatted_min} : ${formatted_sec}`;
     }, 1000);
+
+function calculate(){
+    var total=0;
+    for(let i=0;i<arr.length;i++){
+      total+=arr[i];
+    }
+    window.sessionStorage.setItem("points", total);
+  }
